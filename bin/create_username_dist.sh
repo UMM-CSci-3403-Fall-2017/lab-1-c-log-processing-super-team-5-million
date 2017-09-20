@@ -10,6 +10,7 @@ sort usernames.txt | uniq -c | cat > counts.txt
 awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' counts.txt | cat > create_username_dist.txt
 #Moves create_username_dist.txt into html_componenets so that it can be ran with wrap_contents.sh
 mv create_username_dist.txt $home/html_components
+rm usernames.txt counts.txt
 cd $home
 #Copies wrap_contents into html_components so it can be ran there where the files are located
 cp bin/wrap_contents.sh $home/html_components
